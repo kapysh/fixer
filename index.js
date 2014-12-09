@@ -30,13 +30,11 @@ Fixer.prototype.load = function (cb) {
   },
   function (err) {
     if (err) return console.error(err);
-    console.log('Created all fixtures!');
     _this.eachFixture(function (model_name, fixture_id, fixture, cb) {
       _this.saveAssociations(model_name, fixture_id, fixture, cb);
     },
     function (err) {
       if (err) return cb(err);
-      console.log('Saved all fixture associations!');
       cb();
     });
   });
